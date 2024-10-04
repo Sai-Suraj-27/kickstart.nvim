@@ -1,3 +1,5 @@
+-- return { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... }
+
 return {
   -- You can easily change to a different colorscheme.
   -- Change the name of the colorscheme plugin below, and then
