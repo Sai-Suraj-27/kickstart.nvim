@@ -88,6 +88,10 @@ end)
 -- Enable break indent
 vim.opt.breakindent = true
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+
 -- Save undo history
 vim.opt.undofile = true
 
@@ -156,6 +160,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- local nvim_lsp = require 'lspconfig'
+--
+-- nvim_lsp.clangd.setup {
+--   filetypes = { 'c', 'cpp' },
+--   cmd = {
+--     'clangd',
+--     '--header-insertion=never',
+--   },
+-- }
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -178,7 +192,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
 

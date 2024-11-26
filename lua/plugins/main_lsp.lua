@@ -16,6 +16,9 @@ return {
     'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
+    -- require('lspconfig').clangd.setup {
+    --   cmd = { 'clangd', '--header-insertion=never', '--header-insertion-decorators=0' },
+    -- }
     -- Brief aside: **What is LSP?**
     --
     -- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -152,7 +155,9 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      -- clangd = {},
+      clangd = {
+        cmd = { 'clangd', '--header-insertion=never', '--header-insertion-decorators=0' },
+      },
       -- gopls = {},
       pyright = {},
       -- rust_analyzer = {},
@@ -195,6 +200,7 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
       'pyright',
+      'clangd',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

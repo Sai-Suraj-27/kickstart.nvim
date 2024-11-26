@@ -8,6 +8,19 @@ return {
       '<leader>f',
       function()
         require('conform').format { async = true, lsp_fallback = true }
+        -- require('conform').formatters.clang = {
+        --   clang_format = {
+        --     -- Look for .clang-format file in the project
+        --     args = function()
+        --       local file = vim.fn.findfile('.clang-format', '.;')
+        --       if file ~= '' then
+        --         return { '-style=file:' .. file }
+        --       end
+        --       -- Fallback to Google style if no .clang-format file found
+        --       return { '-style=Google' }
+        --     end,
+        --   },
+        -- }
       end,
       mode = '',
       desc = '[F]ormat buffer',
@@ -29,6 +42,7 @@ return {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
       python = { 'black' },
+      -- cpp = { 'clang-format' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
